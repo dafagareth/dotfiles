@@ -1,0 +1,8 @@
+profile laptop-only {
+    output eDP-1 enable resolution 1920x1080 refresh-rate 144
+}
+
+profile with-projector {
+    output eDP-1 enable resolution 1920x1080 refresh-rate 144
+    output HDMI-A-1 enable mirror eDP-1
+}
