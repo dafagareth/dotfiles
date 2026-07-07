@@ -1,0 +1,500 @@
+config.jsonc
+
+{
+  // ====================================
+  // WAYBAR CONFIGURATION
+  // Enhanced with Better Modules
+  // ====================================
+
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "spacing": 0,
+
+  // ====================================
+  // MODULE LAYOUT
+  // ====================================
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "idle_inhibitor",
+    "network",
+    "pulseaudio",
+    "battery"
+  ],
+
+  // ====================================
+  // HYPRLAND MODULES
+  // ====================================
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "format-icons": {
+      "1": "󰈹",
+      "2": "",
+      "3": "",
+      "4": "󰝚",
+      "5": "󰊴",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "hyprland/submap": {
+    "format": "<span color='#f5c2e7'>  {}</span>",
+    "tooltip": false
+  },
+
+  // ====================================
+  // CLOCK MODULE
+  // ====================================
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M:%S  %a, %d %b}",
+    "format-alt": "{:%Y-%m-%d}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#f5e0dc'><b>{}</b></span>",
+        "days": "<span color='#f5e0dc'><b>{}</b></span>",
+        "weeks": "<span color='#a6e3a1'><b>W{}</b></span>",
+        "weekdays": "<span color='#f5c2e7'><b>{}</b></span>",
+        "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  // ====================================
+  // BATTERY MODULE
+  // ====================================
+  "battery": {
+    "interval": 10,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰚥  {capacity}%",
+    "format-full": "󱟢  {capacity}%",
+    "format-alt": "{icon}  {time}",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{timeTo}"
+  },
+
+  // ====================================
+  // NETWORK MODULE
+  // ====================================
+  "network": {
+    "interval": 5,
+    "format-wifi": "󰖨  {essid}",
+    "format-ethernet": "󰈀  Wired",
+    "format-linked": "󰈂  {ifname}",
+    "format-disconnected": "󰖪  Disconnected",
+    "format-alt": "󰓅 {bandwidthDownBits}  󰕒 {bandwidthUpBits}",
+    "tooltip-format": "{essid} ({signalStrength}%)",
+    "on-click": "nm-connection-editor"
+  },
+
+  // ====================================
+  // PULSEAUDIO MODULE
+  // ====================================
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰖁  Muted",
+    "format-bluetooth": "󰂯  {volume}%",
+    "format-bluetooth-muted": "󰂲  Muted",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip-format": "{volume}%"
+  },
+
+  // ====================================
+  // IDLE INHIBITOR MODULE
+  // ====================================
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅾",
+      "deactivated": "󰾪"
+    },
+    "tooltip-format-activated": "Idle inhibitor: ON",
+    "tooltip-format-deactivated": "Idle inhibitor: OFF"
+  },
+
+  // ====================================
+  // SYSTEM TRAY MODULE
+  // ====================================
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+    "show-passive-items": true
+  }
+}
+
+
+mocha.css
+
+/* ====================================
+   MOCHA - BLACK & WHITE THEME
+   Enhanced with Better Contrast
+   ==================================== */
+
+/* Primary Colors - Whites & Grays */
+@define-color rosewater #fce4ec;  /* Soft pink-white */
+@define-color flamingo #f5f5f5;   /* Pure white-gray */
+@define-color pink #eeeeee;       /* Light gray */
+@define-color mauve #e0e0e0;      /* Medium-light gray */
+
+/* Accent Colors - Mid Tones */
+@define-color red #b38c8f;        /* Muted red-gray */
+@define-color maroon #a8a8a8;     /* Medium gray */
+@define-color peach #b0b0b0;      /* Light-medium gray */
+@define-color yellow #b8b8b8;     /* Warm gray */
+
+/* Nature Colors - Cool Tones */
+@define-color green #a6e3a1;      /* Soft mint (kept for battery) */
+@define-color teal #94e2d5;       /* Soft cyan */
+@define-color sky #f5e0dc;        /* Warm white */
+@define-color sapphire #e8e8e8;   /* Cool white */
+
+/* Blues & Purples */
+@define-color blue #d4d4d4;       /* Light gray-blue */
+@define-color lavender #ccc;      /* Medium-light gray */
+
+/* Text Hierarchy */
+@define-color text #ffffff;       /* Primary text - pure white */
+@define-color subtext1 #eeeeee;   /* Secondary text */
+@define-color subtext0 #dddddd;   /* Tertiary text */
+
+/* Overlay Levels */
+@define-color overlay2 #bbbbbb;   /* Bright overlay */
+@define-color overlay1 #999999;   /* Medium overlay */
+@define-color overlay0 #888888;   /* Dim overlay */
+
+/* Surface Levels */
+@define-color surface2 #666666;   /* Raised surface */
+@define-color surface1 #555555;   /* Mid surface */
+@define-color surface0 #444444;   /* Low surface */
+
+/* Base Colors - Backgrounds */
+@define-color base #1a1a1a;       /* Primary background */
+@define-color mantle #151515;     /* Deeper background */
+@define-color crust #0a0a0a;      /* Deepest background */
+
+
+
+style.css
+
+@import "mocha.css";
+
+/* ====================================
+   GLOBAL STYLES
+   ==================================== */
+* {
+    font-family: "JetBrains Mono";
+    font-size: 13px;
+    min-height: 0;
+    font-weight: 600;
+}
+
+/* ====================================
+   WAYBAR WINDOW
+   ==================================== */
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: @text;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* ====================================
+   WINDOW TITLE
+   ==================================== */
+#window {
+    margin: 8px 12px;
+    padding: 0 8px;
+    color: @subtext0;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* ====================================
+   WORKSPACES
+   ==================================== */
+#workspaces {
+    margin: 4px 8px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    margin: 0 2px;
+    background: transparent;
+    color: @overlay1;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: @text;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.active {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    color: @text;
+    border-bottom: 2px solid @text;
+}
+
+#workspaces button.focused {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+    color: @rosewater;
+    border-bottom: 2px solid @rosewater;
+}
+
+#workspaces button.urgent {
+    background: rgba(179, 140, 143, 0.2);
+    color: @red;
+    border-bottom: 2px solid @red;
+    animation: urgent-blink 1s ease-in-out infinite alternate;
+}
+
+@keyframes urgent-blink {
+    to {
+        background: rgba(179, 140, 143, 0.35);
+    }
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 4px;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 4px;
+}
+
+/* ====================================
+   MODULE BASE STYLES
+   ==================================== */
+.modules-right > * {
+    margin: 4px 3px;
+}
+
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#wireplumber,
+#tray,
+#mode,
+#scratchpad {
+    margin: 4px 3px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    color: @text;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: all 0.2s ease;
+}
+
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#backlight:hover,
+#wireplumber:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ====================================
+   CLOCK
+   ==================================== */
+#clock {
+    margin: 4px 8px 4px 3px;
+    padding: 4px 12px;
+    color: @rosewater;
+    background: linear-gradient(135deg, rgba(245, 194, 231, 0.08), rgba(245, 194, 231, 0.04));
+    border-radius: 8px;
+    border: 1px solid rgba(245, 194, 231, 0.12);
+    font-weight: 600;
+}
+
+#clock.date {
+    color: @flamingo;
+    background: linear-gradient(135deg, rgba(224, 224, 224, 0.06), rgba(224, 224, 224, 0.03));
+    border-color: rgba(224, 224, 224, 0.1);
+}
+
+/* ====================================
+   BATTERY
+   ==================================== */
+#battery {
+    margin: 4px 3px;
+    padding: 4px 10px;
+    color: @green;
+    background: linear-gradient(135deg, rgba(166, 227, 161, 0.08), rgba(166, 227, 161, 0.04));
+    border-radius: 8px;
+    border: 1px solid rgba(166, 227, 161, 0.12);
+}
+
+#battery.charging, #battery.plugged {
+    color: @teal;
+    background: linear-gradient(135deg, rgba(96, 96, 96, 0.08), rgba(96, 96, 96, 0.04));
+    border-color: rgba(96, 96, 96, 0.12);
+}
+
+#battery.warning:not(.charging) {
+    color: @peach;
+    background: linear-gradient(135deg, rgba(144, 144, 144, 0.1), rgba(144, 144, 144, 0.05));
+    border-color: rgba(144, 144, 144, 0.15);
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    background: linear-gradient(135deg, rgba(227, 140, 143, 0.15), rgba(227, 140, 143, 0.08));
+    border-color: rgba(227, 140, 143, 0.2);
+    animation: battery-blink 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes battery-blink {
+    to {
+        background: linear-gradient(135deg, rgba(227, 140, 143, 0.25), rgba(227, 140, 143, 0.15));
+    }
+}
+
+/* ====================================
+   NETWORK
+   ==================================== */
+#network {
+    margin: 4px 3px;
+    padding: 4px 10px;
+    color: @sky;
+    background: linear-gradient(135deg, rgba(245, 224, 220, 0.06), rgba(245, 224, 220, 0.03));
+    border-radius: 8px;
+    border: 1px solid rgba(245, 224, 220, 0.1);
+}
+
+#network.disconnected {
+    color: @overlay1;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ====================================
+   PULSEAUDIO
+   ==================================== */
+#pulseaudio {
+    margin: 4px 3px;
+    padding: 4px 10px;
+    color: @lavender;
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.06), rgba(192, 192, 192, 0.03));
+    border-radius: 8px;
+    border: 1px solid rgba(192, 192, 192, 0.1);
+}
+
+#pulseaudio.muted {
+    color: @overlay0;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ====================================
+   IDLE INHIBITOR
+   ==================================== */
+#idle_inhibitor {
+    margin: 4px 8px 4px 3px;
+    padding: 4px 10px;
+    color: @overlay1;
+    background: transparent;
+    border-radius: 8px;
+}
+
+#idle_inhibitor.activated {
+    color: @yellow;
+    background: linear-gradient(135deg, rgba(128, 128, 128, 0.08), rgba(128, 128, 128, 0.04));
+    border: 1px solid rgba(128, 128, 128, 0.12);
+}
+
+/* ====================================
+   CUSTOM VPN
+   ==================================== */
+#custom-vpn {
+    margin: 4px 3px;
+    padding: 4px 10px;
+    color: @mauve;
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(192, 192, 192, 0.04));
+    border-radius: 8px;
+    border: 1px solid rgba(192, 192, 192, 0.12);
+}
+
+/* ====================================
+   TRAY
+   ==================================== */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+}
+
+/* ====================================
+   TOOLTIP
+   ==================================== */
+tooltip {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+tooltip label {
+    color: @text;
+}

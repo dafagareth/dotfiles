@@ -1,0 +1,86 @@
+* {
+  font-family: 'JetBrainsMono', monospace;
+  font-size: 13px;
+  color: #ffffff;
+  background: transparent;
+}
+
+window {
+  padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  background: #000000;
+}
+
+#outer-box {
+  padding: 0;
+}
+
+#inner-box {
+  padding: 0;
+}
+
+#scroll {
+  padding: 4px;
+}
+
+#input {
+  margin: 8px;
+  padding: 10px;
+  border: 1px solid #333333;
+  border-radius: 2px;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+#input:focus {
+  border: 1px solid #666666;
+  outline: none;
+}
+
+#img {
+  margin-right: 10px;
+}
+
+#entry {
+  padding: 8px 10px;
+  margin: 2px 8px;
+  border-radius: 2px;
+  background: transparent;
+}
+
+#entry:hover {
+  background: #1a1a1a;
+  border-left: 2px solid #555555;
+  padding-left: 8px;
+}
+
+#entry:selected {
+  background: #ffffff;
+  color: #000000;
+  border-left: 3px solid #000000;
+  padding-left: 7px;
+}
+
+#entry:selected #text {
+  color: #000000;
+}
+
+#text {
+  padding: 0;
+  margin: 0;
+}
+
+scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+scrollbar slider {
+  background: #333333;
+  border-radius: 2px;
+}
+
+scrollbar slider:hover {
+  background: #666666;
+}
