@@ -1,0 +1,16 @@
+# yazi — keymap tambahan
+# Buka folder/berkas yang di-hover langsung di VSCodium.
+# Alur: browse ke folder project (sorot foldernya) -> Ctrl+o -> buka di codium
+# (tak perlu masuk ke dalamnya dulu). %s = item yang di-hover/terpilih.
+
+[[mgr.prepend_keymap]]
+on  = "<C-o>"
+run = "shell 'codium %s' --orphan"
+desc = "Buka di VSCodium"
+
+# Open terminal here: yazi menjalankan `shell` di direktori aktif,
+# jadi kitty otomatis terbuka di folder yang sedang dibuka.
+[[mgr.prepend_keymap]]
+on  = "<C-t>"
+run = "shell 'kitty' --orphan"
+desc = "Buka terminal (kitty) di sini"

@@ -1,0 +1,5 @@
+{ "label": "lock",     "action": "swaylock -f",                      "text": "Lock" }
+{ "label": "suspend",  "action": "systemctl suspend",                "text": "Suspend" }
+{ "label": "logout",   "action": "hyprctl dispatch 'hl.dsp.exit()'", "text": "Logout" }
+{ "label": "reboot",   "action": "systemctl reboot",                 "text": "Reboot" }
+{ "label": "shutdown", "action": "systemctl poweroff",               "text": "Shutdown" }

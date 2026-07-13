@@ -1,0 +1,27 @@
+# Never commit credentials. If any of these ever appear here, it is a mistake.
+.ssh/
+.gnupg/
+**/gh/hosts.yml
+**/ngrok/
+.bootdev.yaml
+.wakatime.cfg
+*.key
+*.pem
+id_rsa*
+id_ed25519*
+.env
+.env.*
+
+# Personal data that has no business in a dotfiles repo
+config/calcure/
+config/calcurse/
+
+# Editor and runtime state, not configuration.
+# nvim/lazy-lock.json is kept on purpose: it pins plugin versions, so a fresh
+# install reproduces the same setup instead of pulling whatever is latest.
+config/**/*.log
+config/VSCodium/User/globalStorage/
+config/VSCodium/User/History/
+config/VSCodium/User/workspaceStorage/
+config/eww/scripts/__pycache__/
+config/waybar/_unused/

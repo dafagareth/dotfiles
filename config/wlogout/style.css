@@ -1,0 +1,74 @@
+/* wlogout — GitHub Dark (segmented, borderless)
+   Card SOLID tanpa border/outline. Blur HANYA di latar desktop (di belakang
+   surface wlogout), bukan pada card -- diatur oleh hl.layer_rule namespace
+   di hyprland.lua + card yang opak. Dipakai dengan `wlogout -b 5`.
+
+   Ukuran diatur lewat margin (px). Gampang di-tune:
+   - margin atas/bawah lebih KECIL  -> tile lebih TINGGI
+   - margin kiri/kanan lebih KECIL  -> bilah lebih LEBAR */
+
+* {
+    background-image: none;
+    box-shadow: none;
+    outline: none;                 /* buang cincin fokus GTK */
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 15px;
+    color: #e6edf3;
+    transition: all 0.2s ease;
+}
+
+/* window = permukaan transparan; lewat sinilah blur latar desktop terlihat */
+window {
+    background-color: rgba(1, 4, 9, 0.35);
+}
+
+button {
+    /* SOLID (opak) -> card tidak ikut blur */
+    background-color: #161b22;
+
+    /* tinggi tile: margin atas/bawah kecil -> tile memanjang ke bawah */
+    margin-top: 120px;
+    margin-bottom: 120px;
+
+    border: none;
+    outline: none;
+    border-radius: 0;
+
+    /* ikon di sepertiga atas, teks (label) di tengah -> terpisah */
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 52px;
+    padding-top: 90px;
+}
+
+/* sudut luar membulat + jarak blur kiri (tombol pertama) */
+button:first-child {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    margin-left: 100px;
+}
+
+/* sudut luar membulat + jarak blur kanan (tombol terakhir) */
+button:last-child {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    margin-right: 100px;
+}
+
+button:focus,
+button:hover {
+    background-color: #1f2c47;      /* solid, card tetap tidak tembus */
+    color: #58a6ff;
+}
+
+button:active {
+    background-color: #58a6ff;
+    color: #0d1117;
+}
+
+#lock     { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
+#logout   { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
+#suspend  { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
+#reboot   { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }
+#shutdown { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }

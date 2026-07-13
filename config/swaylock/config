@@ -1,0 +1,65 @@
+# ~/.config/swaylock/config
+# Tema GitHub Dark -- disamakan dengan kitty & wofi.
+# Latar hitam, aksen biru #58a6ff.
+#
+# CATATAN: dipanggil cukup dengan `swaylock -f` (tanpa warna inline) dari
+# hyprland.lua (Super+L) dan hypridle.conf. Semua warna diatur DI SINI supaya
+# ada satu sumber kebenaran. Kalau ada yang menambahkan flag warna di CLI,
+# itu akan menimpa file ini.
+
+daemonize
+show-failed-attempts
+clock
+timestr=%H:%M
+datestr=%a, %d %B
+font=JetBrainsMono Nerd Font
+
+# Indikator sengaja selalu terlihat: layar kunci polos hitam gak bisa
+# dibedakan dari layar mati, dan itu bikin panik.
+indicator-idle-visible
+indicator-radius=100
+indicator-thickness=10
+
+# Background
+color=000000
+
+# Text
+text-color=e6edf3
+text-clear-color=e6edf3
+text-caps-lock-color=e6edf3
+text-ver-color=e6edf3
+text-wrong-color=ff7b72
+
+# Inside ring
+inside-color=0d1117cc
+inside-clear-color=0d1117cc
+inside-caps-lock-color=0d1117cc
+inside-ver-color=0d1117cc
+inside-wrong-color=0d1117cc
+
+# Ring
+ring-color=30363d
+ring-clear-color=58a6ff
+ring-caps-lock-color=d29922
+ring-ver-color=58a6ff
+ring-wrong-color=ff7b72
+
+# Highlight (segmen saat mengetik / backspace)
+key-hl-color=58a6ff
+bs-hl-color=ff7b72
+caps-lock-key-hl-color=58a6ff
+caps-lock-bs-hl-color=ff7b72
+
+# Line separator (dibuat transparan)
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+separator-color=00000000
+
+# Effects
+fade-in=0.2
+grace=2
+grace-no-mouse
+grace-no-touch

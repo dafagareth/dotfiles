@@ -1,0 +1,328 @@
+{
+    // ====================================
+    // WAYBAR CONFIG - OPTIMIZED v2
+    // Black & White Theme
+    // Improvements: Better intervals, CPU module, auto battery detect
+    // ====================================
+    
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 6,
+    
+    "modules-left": [
+        "hyprland/workspaces",
+        "cpu",
+        "temperature",
+        "memory"
+    ],
+    
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "mpris",
+        "network",
+        "bluetooth",
+        "backlight",
+        "wireplumber",
+        "custom/powerprofile",
+        "battery",
+        "idle_inhibitor",
+        "custom/notification",
+        "tray"
+    ],
+    
+    // ====================================
+    // WORKSPACES
+    // ====================================
+    
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "format-icons": {
+            "active": "●",
+            "default": "○",
+            "urgent": "!"
+        },
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    
+    // ====================================
+    // CLOCK
+    // ====================================
+    
+    "clock": {
+        "interval": 1,
+        "format": "{:%d/%m/%Y | %H:%M:%S}",
+        "format-alt": "{:%A, %d %B %Y}",
+        "format-alt-click": 1,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#ffffff'><b>{}</b></span>",
+                "days": "<span color='#cccccc'>{}</span>",
+                "weeks": "<span color='#999999'>{}</span>",
+                "weekdays": "<span color='#ffffff'>{}</span>",
+                "today": "<span color='#ffffff'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    
+    // ====================================
+    // MPRIS (media yang sedang diputar) -- kanan jam
+    // ====================================
+
+    "mpris": {
+        // hanya IKON di bar -- judul/artis ada di tooltip & popup (klik).
+        // format-stopped kosong -> ikon HILANG total kalau tak ada media.
+        "format": "{status_icon}",
+        "format-paused": "{status_icon}",
+        "format-stopped": "",
+        "status-icons": {
+            "playing": "󰎇",
+            "paused": "󰏤",
+            "stopped": "󰓛"
+        },
+        "dynamic-order": ["title", "artist"],
+        "dynamic-len": 28,
+        "max-length": 42,
+        "interval": 2,
+        // klik kiri  -> popup eww (album art + cava live + kontrol)
+        // klik tengah -> play/pause cepat (tanpa buka popup)
+        "on-click": "$HOME/.config/eww/scripts/popup.sh media",
+        "on-click-middle": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "tooltip-format": "{status_icon} {player}\n{title}\n{artist}\n\nKlik untuk popup"
+    },
+
+    // ====================================
+    // POWER PROFILE (power-profiles-daemon) -- klik untuk cycle
+    // ====================================
+
+    "custom/powerprofile": {
+        "exec": "$HOME/.config/hypr/scripts/powerprofile.sh",
+        "return-type": "json",
+        "interval": 10,
+        "signal": 8,
+        "on-click": "$HOME/.config/hypr/scripts/powerprofile.sh cycle",
+        "tooltip": true
+    },
+
+    // ====================================
+    // CPU
+    // ====================================
+
+    "cpu": {
+        "interval": 10,
+        "format": "󰻠 {usage}%",
+        "format-alt": "󰻠 {avg_frequency}GHz",
+        // format-alt cuma aktif kalau format-alt-click di-set (ALabel.cpp:267).
+        // Klik kiri sudah dipakai buat btop, jadi toggle-nya taruh di klik kanan (3).
+        "format-alt-click": 3,
+        "tooltip-format": "CPU Usage: {usage}%\nLoad Average: {load}",
+        "on-click": "kitty -e btop",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+    
+    // ====================================
+    // BRIGHTNESS
+    // ====================================
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip-format": "Brightness: {percent}%"
+    },
+
+    // ====================================
+    // AUDIO
+    // ====================================
+
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 MUTE",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "max-volume": 100,
+        "scroll-step": 5,
+        // klik kiri  -> popup eww (slider master / mic / per-aplikasi)
+        // klik tengah -> pavucontrol (mixer lengkap, kalau perlu yang detail)
+        // klik kanan -> mute cepat
+        "on-click": "$HOME/.config/eww/scripts/popup.sh volume",
+        "on-click-middle": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    
+    // ====================================
+    // BATTERY
+    // ====================================
+    
+    "battery": {
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-full": "󰁹 {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁾", "󰂀", "󰁹"],
+        "tooltip-format": "{timeTo}\nCapacity: {capacity}%\nPower: {power}W"
+    },
+    
+    // ====================================
+    // MEMORY
+    // ====================================
+    
+    "memory": {
+        "interval": 10,
+        "format": "  {percentage}%",
+        "format-alt": "  {used:0.1f}G/{total:0.1f}G",
+        "format-alt-click": 1,
+        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G ({percentage}%)\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G ({swapPercentage}%)",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+    
+    // ====================================
+    // TEMPERATURE
+    // ====================================
+    
+    "temperature": {
+        "interval": 10,
+        // Tanpa ini waybar default ke thermal_zone0, yang di laptop ini = SEN2
+        // (sensor board, ~40°C) bukan CPU (~47°C) -> critical-threshold gak pernah kena.
+        // Pakai nama, bukan nomor hwmon: penomoran hwmonN bisa berubah tiap boot.
+        "hwmon-name": "coretemp",
+        "input-filename": "temp1_input",
+        "format": " {temperatureC}°C",
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C",
+        "tooltip-format": "CPU Package: {temperatureC}°C"
+    },
+    
+    // ====================================
+    // NETWORK
+    // ====================================
+    
+    "network": {
+        "interval": 10,
+        "format": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-wifi": "{icon}",
+        "format-disconnected": "󰖪",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format-wifi": "{essid}\nSignal: {signalStrength}%\nIP: {ipaddr}\nSpeed: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "Ethernet\nIP: {ipaddr}\nSpeed: {bandwidthDownBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+    
+    // ====================================
+    // BLUETOOTH
+    // ====================================
+    
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-connected": "󰂱 {num_connections}",
+        "tooltip-format": "{controller_alias}\t{controller_address}\nStatus: {status}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\nStatus: {status}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\tBattery: {device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+    
+    // ====================================
+    // LANGUAGE
+    // ====================================
+    
+    "hyprland/language": {
+        "format": "  {}",
+        "format-en": "EN",
+        "format-id": "ID",
+        "keyboard-name": "at-translated-set-2-keyboard"
+    },
+    
+    // ====================================
+    // IDLE INHIBITOR
+    // ====================================
+    
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅾",
+            "deactivated": "󰾪"
+        },
+        "tooltip-format-activated": "Idle inhibitor: ON\nScreen will not turn off",
+        "tooltip-format-deactivated": "Idle inhibitor: OFF\nScreen will turn off normally"
+    },
+    
+    // ====================================
+    // NOTIFICATION (swaync)
+    // ====================================
+
+    // "swaync-client -swb" mengeluarkan JSON: text = jumlah notifikasi,
+    // alt/class = (dnd-)?(inhibited-)?(notification|none)  -- 8 kombinasi,
+    // disusun di src/client.vala:109. Semua harus punya ikon, kalau tidak
+    // modulnya kosong pas DND aktif.
+    "custom/notification": {
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+            "none": "󰂜",
+            "notification": "󰂚",
+            "dnd-none": "󰂛",
+            "dnd-notification": "󰂛",
+            "inhibited-none": "󰂜",
+            "inhibited-notification": "󰂚",
+            "dnd-inhibited-none": "󰂛",
+            "dnd-inhibited-notification": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    // ====================================
+    // TRAY
+    // ====================================
+    
+    "tray": {
+        "icon-size": 16,
+        "spacing": 12,
+        "show-passive-items": true,
+        // Sembunyikan ikon wifi nm-applet: redundan sama modul "network" di kiri-nya.
+        // nm-applet tetap dibiarkan jalan karena dia juga secret agent NetworkManager
+        // (yang munculin prompt password wifi).
+        //
+        // Dua pola, sengaja:
+        //   nm_applet -> dicocokkan ke service string di Host::addRegisteredItem(),
+        //                yaitu ":1.469/org/ayatana/NotificationItem/nm_applet".
+        //                Perhatikan UNDERSCORE — di sini item ditolak sebelum dibuat.
+        //   nm-applet -> properti Id-nya, buat jaring pengaman di Host::checkIgnoreList().
+        "ignore-list": ["nm_applet", "nm-applet"]
+    }
+}

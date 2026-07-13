@@ -1,0 +1,65 @@
+# GitHub Dark theme for btop
+# Dasar #0d1117 + aksen biru #58a6ff. Gauge load: biru -> amber -> merah.
+
+theme[main_bg]="#0d1117"
+theme[main_fg]="#e6edf3"
+theme[title]="#e6edf3"
+theme[hi_fg]="#58a6ff"
+theme[selected_bg]="#161b22"
+theme[selected_fg]="#58a6ff"
+theme[inactive_fg]="#484f58"
+theme[graph_text]="#b1bac4"
+theme[meter_bg]="#21262d"
+theme[proc_misc]="#58a6ff"
+
+# Kotak modul
+theme[cpu_box]="#30363d"
+theme[mem_box]="#30363d"
+theme[net_box]="#30363d"
+theme[proc_box]="#30363d"
+theme[div_line]="#30363d"
+
+# Suhu: dingin biru -> panas merah
+theme[temp_start]="#58a6ff"
+theme[temp_mid]="#d29922"
+theme[temp_end]="#ff7b72"
+
+# Beban CPU: rendah biru -> tinggi merah
+theme[cpu_start]="#58a6ff"
+theme[cpu_mid]="#d29922"
+theme[cpu_end]="#ff7b72"
+
+# Memori bebas (hijau lembut)
+theme[free_start]="#3fb950"
+theme[free_mid]="#2ea043"
+theme[free_end]="#238636"
+
+# Cache (biru muda)
+theme[cached_start]="#79c0ff"
+theme[cached_mid]="#58a6ff"
+theme[cached_end]="#388bfd"
+
+# Tersedia (abu-biru)
+theme[available_start]="#a5d6ff"
+theme[available_mid]="#79c0ff"
+theme[available_end]="#58a6ff"
+
+# Terpakai (biru -> merah)
+theme[used_start]="#58a6ff"
+theme[used_mid]="#d29922"
+theme[used_end]="#ff7b72"
+
+# Download (hijau)
+theme[download_start]="#3fb950"
+theme[download_mid]="#2ea043"
+theme[download_end]="#238636"
+
+# Upload (biru)
+theme[upload_start]="#79c0ff"
+theme[upload_mid]="#58a6ff"
+theme[upload_end]="#388bfd"
+
+# Grafik proses (biru)
+theme[process_start]="#58a6ff"
+theme[process_mid]="#79c0ff"
+theme[process_end]="#a5d6ff"

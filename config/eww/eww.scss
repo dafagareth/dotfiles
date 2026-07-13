@@ -1,0 +1,166 @@
+// ══════════════════════════════════════════════════════════════
+//  eww — tema GitHub Dark (senada kitty / waybar / wofi / dock)
+// ══════════════════════════════════════════════════════════════
+
+$bg:        #0d1117;
+$surface:   #161b22;
+$surface2:  #21262d;
+$border:    #30363d;
+$fg:        #e6edf3;
+$fg-dim:    #b1bac4;
+$fg-mute:   #6e7681;
+$accent:    #58a6ff;
+$accent-hi: #79c0ff;
+$red:       #ff7b72;
+
+* {
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+}
+
+// Lapisan penangkap klik "di luar popup". Nyaris tak terlihat, tapi TIDAK
+// boleh benar-benar 0 alpha -- GTK bisa mengabaikan klik pada area yang
+// sepenuhnya transparan.
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+.popup {
+  background-color: $bg;
+  border: 1px solid $border;
+  border-radius: 14px;
+  padding: 14px;
+  color: $fg;
+}
+
+// ─── Media ────────────────────────────────────────────────────
+
+.art {
+  min-width: 96px;
+  min-height: 96px;
+  border-radius: 10px;
+  background-color: $surface2;   // fallback kalau tak ada album art
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  color: $fg;
+}
+
+.artist {
+  font-size: 12px;
+  color: $fg-dim;
+}
+
+// visualizer cava
+.cava {
+  font-size: 15px;
+  color: $accent;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+.prog {
+  min-height: 4px;
+  border-radius: 4px;
+
+  trough {
+    background-color: $surface2;
+    border-radius: 4px;
+    min-height: 4px;
+  }
+  progress {
+    background-color: $accent;
+    border-radius: 4px;
+    min-height: 4px;
+  }
+}
+
+.ctl { margin-top: 6px; }
+
+.btn {
+  font-size: 16px;
+  color: $fg-dim;
+  padding: 4px 10px;
+  border-radius: 8px;
+
+  &:hover {
+    color: $accent;
+    background-color: rgba(88, 166, 255, 0.14);
+  }
+}
+
+.btn-main {
+  font-size: 20px;
+  color: $fg;
+}
+
+// ─── Volume ───────────────────────────────────────────────────
+
+.vpopup { padding: 16px; }
+
+.phead {
+  font-size: 12px;
+  font-weight: 700;
+  color: $fg-mute;
+}
+
+.vrow { margin-top: 2px; }
+
+.vicon {
+  font-size: 17px;
+  color: $accent;
+  min-width: 26px;
+
+  &.muted { color: $red; }
+}
+
+.vname {
+  font-size: 12px;
+  color: $fg-dim;
+  margin-bottom: 2px;
+}
+
+.vpct {
+  font-size: 12px;
+  color: $fg-mute;
+  min-width: 40px;
+}
+
+.vslider {
+  trough {
+    background-color: $surface2;
+    border-radius: 8px;
+    min-height: 6px;
+
+    highlight {
+      background-color: $accent;
+      border-radius: 8px;
+      min-height: 6px;
+    }
+  }
+  slider {
+    background-color: $fg;
+    border-radius: 50%;
+    min-width: 12px;
+    min-height: 12px;
+    margin: -4px;
+  }
+  &:hover slider { background-color: $accent-hi; }
+}
+
+.sep {
+  background-color: $border;
+  min-height: 1px;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+.empty {
+  font-size: 12px;
+  color: $fg-mute;
+  font-style: italic;
+}

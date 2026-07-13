@@ -1,0 +1,47 @@
+/* nwg-dock-hyprland — GitHub Dark (glassy, autohide)
+   Latar sengaja semi-transparan supaya blur compositor tembus
+   (hl.layer_rule namespace dock di hyprland.lua). */
+
+window {
+  background: rgba(13, 17, 23, 0.78);
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #30363d;
+}
+
+#box {
+  /* jarak di sekeliling deretan ikon (pas untuk ikon 36px) */
+  padding: 6px;
+}
+
+#active {
+  /* garis bawah penanda window yang sedang aktif -> aksen biru */
+  border-bottom: solid 2px;
+  border-color: #58a6ff;
+}
+
+button, image {
+  background: none;
+  border-style: none;
+  box-shadow: none;
+  color: #b1bac4;
+}
+
+button {
+  padding: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-radius: 10px;
+  color: #e6edf3;
+  font-size: 11px;
+}
+
+button:hover {
+  background-color: rgba(88, 166, 255, 0.18);
+  border-radius: 10px;
+}
+
+button:focus {
+  box-shadow: none;
+}

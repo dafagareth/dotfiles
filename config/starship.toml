@@ -1,0 +1,71 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Palet GitHub Dark: biru #58a6ff (utama), ungu #bc8cff, merah #ff7b72,
+# kuning #d29922, hijau #3fb950.
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$c\
+$cpp\
+$python\
+$rust\
+$cmd_duration\
+$character\
+"""
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[character]
+success_symbol = '[❯](bold #3fb950)'
+error_symbol = '[❯](bold #ff7b72)'
+
+[directory]
+style = 'bold #58a6ff'
+truncation_length = 3
+
+[git_branch]
+symbol = ''
+format = 'on [$branch]($style) '
+style = 'bold #bc8cff'
+
+[git_status]
+format = '([$all_status$ahead_behind]($style)) '
+style = 'bold #ff7b72'
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[c]
+symbol = ''
+format = 'via [$name $version]($style) '
+style = 'bold #58a6ff'
+
+[cpp]
+symbol = ''
+format = 'via [$name $version]($style) '
+style = 'bold #58a6ff'
+
+[cmd_duration]
+min_time = 500
+format = 'took [$duration](bold #d29922) '
+
+[python]
+symbol = ''
+format = 'via [$symbol$version]($style) '
+style = 'bold #d29922'
+pyenv_version_name = true
+
+[rust]
+symbol = ''
+format = 'via [$symbol$version]($style) '
+style = 'bold #ff7b72'
+
+[shell]
+disabled = true
+
+[username]
+disabled = true

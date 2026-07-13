@@ -1,0 +1,3 @@
+bibata-cursor-theme
+eww
+wlogout

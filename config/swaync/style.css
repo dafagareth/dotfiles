@@ -1,0 +1,139 @@
+/* ====================================
+   SWAYNC - GitHub Dark
+   Selaras dengan waybar/kitty/wofi (dasar hitam + aksen biru #58a6ff)
+   ====================================
+   swaync 0.12 pakai GTK4 + CSS custom property. Jadi cukup timpa variabel
+   di :root, gak perlu menimpa tiap aturan satu-satu.
+   Nama variabel & kelas diambil dari data/style/style.scss upstream v0.12.6.
+   Butuh "cssPriority": "user" di config.json biar menang atas tema GTK. */
+
+:root {
+  --cc-bg: rgba(13, 17, 23, 0.96);
+
+  --noti-bg: 13, 17, 23;
+  --noti-bg-alpha: 0.96;
+  --noti-bg-darker: rgb(1, 4, 9);
+  --noti-bg-hover: rgb(22, 27, 34);
+  --noti-bg-focus: rgba(33, 38, 45, 0.96);
+  --noti-border-color: rgba(48, 54, 61, 0.9);
+
+  --noti-close-bg: rgba(88, 166, 255, 0.10);
+  --noti-close-bg-hover: rgba(88, 166, 255, 0.22);
+
+  --text-color: #e6edf3;
+  --text-color-disabled: #6e7681;
+  --bg-selected: rgba(88, 166, 255, 0.18);
+
+  --border: 1px solid var(--noti-border-color);
+  --border-radius: 10px;
+
+  /* rice-nya flat: bayangan dimatikan total */
+  --notification-shadow: none;
+
+  --font-size-body: 13px;
+  --font-size-summary: 14px;
+}
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-weight: 500;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+/* Popup mengambang: latar transparan, cuma kartunya yang kelihatan */
+.floating-notifications {
+  background: transparent;
+}
+
+.notification-row .notification-background .notification {
+  border: var(--border);
+  border-radius: var(--border-radius);
+}
+
+.notification-row .notification-background .notification .notification-default-action:hover,
+.notification-row .notification-background .notification .notification-action:hover {
+  background-color: var(--noti-bg-hover);
+}
+
+.summary {
+  font-size: var(--font-size-summary);
+  font-weight: 700;
+  color: #e6edf3;
+}
+
+.body {
+  font-size: var(--font-size-body);
+  color: #b1bac4;
+}
+
+.time {
+  font-size: 11px;
+  color: #6e7681;
+}
+
+.close-button {
+  border-radius: var(--border-radius);
+  min-width: 22px;
+  min-height: 22px;
+}
+
+/* ---- Panel notifikasi (control center) ---- */
+
+.control-center {
+  border: var(--border);
+  border-radius: var(--border-radius);
+}
+
+.control-center .control-center-list-placeholder {
+  color: var(--text-color-disabled);
+  font-size: 13px;
+  opacity: 1;
+}
+
+/* Judul panel + tombol "Bersihkan" */
+.widget-title > label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e6edf3;
+}
+
+.widget-title > button,
+.control-center-clear-all {
+  background: transparent;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  color: #b1bac4;
+  padding: 2px 10px;
+}
+
+.widget-title > button:hover,
+.control-center-clear-all:hover {
+  background: rgba(88, 166, 255, 0.12);
+  color: #58a6ff;
+}
+
+/* Baris "Jangan Ganggu" */
+.widget-dnd > label {
+  font-size: 13px;
+  color: #b1bac4;
+}
+
+.widget-dnd > switch {
+  background: rgba(48, 54, 61, 0.9);
+  border: var(--border);
+  border-radius: var(--border-radius);
+}
+
+.widget-dnd > switch:checked {
+  background: #58a6ff;
+}
+
+.widget-dnd > switch slider {
+  background: #e6edf3;
+  border-radius: var(--border-radius);
+}
+
+.widget-dnd > switch:checked slider {
+  background: #0d1117;
+}

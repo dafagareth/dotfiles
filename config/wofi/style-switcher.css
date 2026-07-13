@@ -1,0 +1,90 @@
+/* wofi window-switcher (Alt-Tab) — GitHub Dark
+   Senada dengan wofi/style.css utama: hitam + aksen biru #58a6ff. */
+
+* {
+  /* nama family harus persis: fc-match "JetBrainsMono" -> Noto Sans Mono (salah) */
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  color: #e6edf3;
+  background: transparent;
+}
+
+window {
+  padding: 10px;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  background: #0d1117;
+}
+
+#outer-box {
+  padding: 0;
+}
+
+#inner-box {
+  padding: 0;
+}
+
+#scroll {
+  padding: 4px;
+}
+
+#input {
+  margin: 8px;
+  padding: 10px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: #010409;
+  color: #e6edf3;
+}
+
+#input:focus {
+  border: 1px solid #58a6ff;
+  outline: none;
+}
+
+#img {
+  margin-right: 10px;
+}
+
+#entry {
+  padding: 8px 10px;
+  margin: 2px 8px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+#entry:hover {
+  background: #161b22;
+  border-left: 2px solid #58a6ff;
+  padding-left: 8px;
+}
+
+#entry:selected {
+  background: #58a6ff;
+  color: #0d1117;
+  border-left: 3px solid #1f6feb;
+  padding-left: 7px;
+}
+
+#entry:selected #text {
+  color: #0d1117;
+}
+
+#text {
+  padding: 0;
+  margin: 0;
+}
+
+scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+scrollbar slider {
+  background: #30363d;
+  border-radius: 8px;
+}
+
+scrollbar slider:hover {
+  background: #58a6ff;
+}

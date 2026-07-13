@@ -1,0 +1,69 @@
+/* GitHub Dark -- disamakan dengan kitty & swaylock.
+   Latar hitam, aksen biru #58a6ff. */
+
+* {
+  /* "JetBrainsMono" (tanpa spasi) gak resolve -> fc-match jatuh ke Noto Sans Mono,
+     dan ikon Nerd Font ilang. Nama family yang bener ada spasinya. */
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  color: #e6edf3;
+  background: transparent;
+}
+
+#window {
+  background: #0d1117;
+  margin: auto;
+  padding: 0px;
+  border-radius: 10px;
+  border: 2px solid #58a6ff;
+}
+
+#input {
+  padding: 10px;
+  margin: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background: #010409;
+  color: #e6edf3;
+}
+
+#input image {
+  color: #58a6ff;
+}
+
+#outer-box {
+  padding: 8px;
+}
+
+#inner-box {
+  padding: 4px 12px 12px 12px;
+}
+
+#scroll {
+  padding: 0px;
+}
+
+#img {
+  margin-right: 8px;
+}
+
+#entry {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+#entry:selected {
+  background-color: #58a6ff;
+}
+
+#entry:selected #text {
+  color: #0d1117;
+}
+
+#text {
+  margin: 2px;
+}
+
+#text:selected {
+  color: #0d1117;
+}

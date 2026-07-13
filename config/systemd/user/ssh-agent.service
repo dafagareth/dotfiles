@@ -1,0 +1,12 @@
+[Unit]
+Description=SSH key agent (mengingat passphrase key selama sesi login)
+
+[Service]
+Type=simple
+# %t = XDG_RUNTIME_DIR (/run/user/1000). Socket ditaruh di situ supaya
+# ikut mati bersama sesi login -- tidak menggantung setelah logout.
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
+
+[Install]
+WantedBy=default.target

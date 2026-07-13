@@ -1,0 +1,32 @@
+# yazi — opener & open rules
+# Placeholder yazi 26.x: %s = semua file terpilih (fallback: yang di-hover),
+#                        %s1 = file pertama, %d/%d1 = direktori.
+
+[opener]
+edit = [
+  { run = '${EDITOR:-nvim} %s', block = true, desc = "nvim" },
+]
+codium = [
+  { run = 'codium %s', orphan = true, desc = "VSCodium" },
+]
+pdf = [
+  { run = 'okular %s', orphan = true, desc = "Okular" },
+]
+image = [
+  { run = 'imv %s', orphan = true, desc = "imv" },
+]
+play = [
+  { run = 'mpv %s', orphan = true, desc = "mpv" },
+]
+open = [
+  { run = 'xdg-open %s1', desc = "Aplikasi default" },
+]
+
+[open]
+prepend_rules = [
+  { mime = "application/pdf",                              use = "pdf" },
+  { mime = "image/*",                                      use = "image" },
+  { mime = "{audio,video}/*",                              use = "play" },
+  { mime = "text/*",                                       use = "codium" },
+  { mime = "application/{json,x-yaml,toml,xml,javascript}", use = "codium" },
+]

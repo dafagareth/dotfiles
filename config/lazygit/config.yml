@@ -1,0 +1,31 @@
+# lazygit — tema GitHub Dark (senada kitty/waybar/yazi)
+gui:
+  theme:
+    activeBorderColor:
+      - '#58a6ff'
+      - bold
+    inactiveBorderColor:
+      - '#30363d'
+    searchingActiveBorderColor:
+      - '#d29922'
+      - bold
+    optionsTextColor:
+      - '#58a6ff'
+    selectedLineBgColor:
+      - '#161b22'
+    inactiveViewSelectedLineBgColor:
+      - '#21262d'
+    cherryPickedCommitBgColor:
+      - '#161b22'
+    cherryPickedCommitFgColor:
+      - '#bc8cff'
+    markedBaseCommitBgColor:
+      - '#161b22'
+    markedBaseCommitFgColor:
+      - '#d29922'
+    unstagedChangesColor:
+      - '#ff7b72'
+    defaultFgColor:
+      - '#e6edf3'
+  showListFooter: true
+  nerdFontsVersion: '3'

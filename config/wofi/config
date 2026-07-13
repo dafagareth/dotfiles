@@ -1,0 +1,24 @@
+hide_scroll=true
+show=drun
+width=30%
+lines=8
+line_wrap=word
+term=kitty
+allow_markup=true
+layer=overlay
+allow_images=true
+sort_order=alphabetical
+gtk_dark=true
+prompt=
+image_size=20
+location=center
+key_expand=Tab
+insensitive=true
+
+# Opsi mode wajib berprefix nama mode (lihat wofi(7)), mis. drun-display_generic.
+# Sebelumnya ada 4 baris tanpa prefix yang diabaikan diam-diam:
+#   always_parse_args, show_all  -> opsi mode "run", padahal kita cuma pakai drun
+#   display_generic              -> opsi mode "drun", default false, sama saja
+#   print_command                -> JANGAN dihidupkan. drun-print_command=true bikin
+#                                   wofi cuma nge-print perintahnya ke stdout dan
+#                                   TIDAK menjalankan aplikasinya (Super+D jadi mati).

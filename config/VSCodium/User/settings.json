@@ -1,0 +1,23 @@
+{
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontSize": 15,
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.fontLigatures.enabled": true,
+  "workbench.browser.showInTitleBar": false,
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
+  "workbench.productIconTheme": "material-product-icons",
+  "workbench.activityBar.compact": true,
+  "workbench.activityBar.location": "top",
+  "window.menuBarVisibility": "compact",
+  "window.controlsStyle": "hidden",
+  "workbench.startupEditor": "none",
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 100,
+  "files.autoSave": "afterDelay",
+  "editor.minimap.autohide": "mouseover",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.density.editorTabHeight": "compact"
+}
