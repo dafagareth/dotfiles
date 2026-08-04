@@ -15,7 +15,10 @@ TIMER_PID="${XDG_RUNTIME_DIR:-/tmp}/dock-autohide.pid"
 
 # PID dock dicari lewat comm (bukan `pkill -f`, yang bisa menabrak shell pemanggil)
 pid=$(ps -e -o pid=,comm= | awk '/nwg-dock/ {print $1; exit}')
-[ -n "$pid" ] || exit 0
+if [ -z "$pid" ]; then
+    "$HOME/.config/hypr/scripts/dock-start.sh" &
+    exit 0
+fi
 
 dock_visible() {
     hyprctl layers -j 2>/dev/null \

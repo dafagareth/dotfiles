@@ -7,4 +7,4 @@
 #  -i   ukuran ikon
 #  -w   jumlah workspace
 #  -c   perintah tombol launcher (nwg-drawer tak terpasang -> pakai wofi)
-exec nwg-dock-hyprland -r -i 36 -w 5 -c "wofi --show drun" -mb 6
+exec nwg-dock-hyprland -r -d -i 36 -w 5 -c "wofi --show drun" -mb 6

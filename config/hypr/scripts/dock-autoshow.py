@@ -79,6 +79,8 @@ def main():
     def signal_now():
         pid = dock_pid()
         if pid is None:
+            script = os.path.expanduser("~/.config/hypr/scripts/dock-start.sh")
+            subprocess.Popen([script])
             return
         try:
             os.kill(pid, SHOW if workspace_is_empty() else HIDE)
